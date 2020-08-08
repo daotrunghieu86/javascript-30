@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //  Array cardio day 2
+      const people = [
+        { name: "Wes", year: 1998 },
+        { name: "Wes", year: 2015 },
+        { name: "Kait", year: 1986 },
+        { name: "Irv", year: 1970 },
+      ];
+
+      const comments = [
+        { text: "Love this!", id: 523423 },
+        { text: "Super good!", id: 823423 },
+        { text: "You are the best", id: 2039842 },
+        { text: "Ramen in my fav food ever", id: 123523 },
+        { text: "Nice Nice Nice!", id: 542328 },
+      ];
+
+      //   Some and Every checks
+
+      //   Array.prototype.some();
+      //   checks if "any of the elements" in an array pass a test
+      const Some1 = people.some(function (person) {
+        const now = new Date().getFullYear();
+        if (now - person.year >= 20) {
+          return true;
+        }
+      });
+      console.log(Some1);
+
+      const Some2 = people.some(
+        (person) => new Date().getFullYear() - person.year >= 19
+      );
+      console.log({ Some2 });
+
+      //   Array.prototype.every();
+      //   checks if "all elements" in an array pass a test
+      const Every = people.every(
+        (person) => new Date().getFullYear() - person.year >= 19
+      );
+      console.log(Every);
+
+      //   Array.prototype.find();
+      //   returns the value of the first element in an array that pass a test
+      const Find = people.find(
+        (person) => new Date().getFullYear() - person.year >= 19
+      );
+      console.log(Find);
+
+      const comment = comments.find((cmt) => cmt.id === 2039842);
+      console.log(comment);
+
+      //    Array.prototype.findIndex()
+      //    returns the index of the first element in an array that pass a test
+      const FindIndex = people.findIndex(
+        (person) => new Date().getFullYear() - person.year >= 25
+      );
+      console.log(FindIndex);
+
+      // Array.prototype.slice()
+      // returns the selected elements in an array, as a new array object
+      //   comments.splice(FindIndex, 1);
+      const newComments = [
+        ...comments.slice(0, FindIndex),
+        ...comments.slice(FindIndex + 1),
+      ];
+      console.log(newComments); // (4) [{…}, {…}, {…}, {…}]
+    </script>
+  </body>
+</html>

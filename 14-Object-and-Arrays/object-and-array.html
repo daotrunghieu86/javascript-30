@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href=""> -->
+    <title>Object and Array</title>
+</head>
+<body>
+    <script>
+
+        // ARRAY
+
+        // Start with strings, numbers and booleans
+        let age = 15;
+        let ages = age;
+        console.log(age, ages);
+        ages = 120; 
+        console.log(age, ages);
+
+
+        // let's say we have an array
+        // khi gán 1 array mới bằng 1 array cũ thì:
+        const players = ['wes', 'Sarah', 'Ryan', "Poppy"];
+        var player = ['wes', 'Sarah', 'Ryan', "Poppy"];
+         player = players;
+        console.log(player, players);         // the same result
+        player[3] = 'hieu';
+        console.log(player, players);         // the same result
+
+
+        // Để khắc phục được tình huống ngày có thể sử dụng:
+
+        // We could use ES6
+        var game1 = [...players];
+        game1[2] = 'Bi Xoan';
+        console.log(game1);               // ["wes", "Sarah", "Bi Xoan", "hieu"]
+
+        // We could use array.slice()
+        var game2 = players.slice();
+        game2[2] = 'BiBi';
+        console.log(game2);               // ["wes", "Sarah", "BiBi", "hieu"]
+
+        // We could use [].concat(array)
+        var game3 = [].concat(players);
+        game3[2] = 'Xoan';
+        console.log(game3);              // ["wes", "Sarah", "Xoan", "hieu"]
+
+
+        // Object
+
+        let object = {name: 'Hieu', age: 23};
+        let object1 = object;
+        object1.name = 'Bi';
+        console.log(object1);            // the same result
+        console.log(object);             // the same result
+
+
+        // Để khắc phục tình trạng này chúng ta có thể sử dụng: 
+
+        // Object.assign({},object)
+        let objects = {name: 'Hieu', age: 23};
+        let object2 = Object.assign({}, objects);
+        object2.name = 'BiXoan';
+        console.log(object2);
+        console.log(objects);
+
+        // Nếu tạo một object3 = object2 với cách làm tương tự như trên thì: 
+        
+        let new1 = {person: {name: 'Nguyen Huong', age: 23}};
+        let object3 = Object.assign({}, new1);
+        console.log(object3);
+        object3.person.name = 'Xoan';
+        console.log(new1);              // the same result
+        console.log(object3);           // the same result
+
+        // Có thể khắc phục bằng: JSON.parse(JSON.stringify(object))
+
+        new1 = {person: {name: 'Nguyen Huong', age: 23}};
+        var newObject = JSON.parse(JSON.stringify(new1));
+        console.log(newObject);
+        newObject.person.name = 'Bi Love Tau';
+        console.log(newObject);                 // name: "Bi Love Tau"      
+        console.log(new1);                      // name: "Nguyen Huong" 
+
+    </script>
+</body>
+</html>

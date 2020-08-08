@@ -1,0 +1,13 @@
+:root {
+  --spacing: 16px;
+  --blur: 5px;
+  --color: #95a5a6;
+}
+
+.container img {
+  margin-top: 2rem;
+  border: var(--spacing) solid var(--color);
+  -webkit-filter: blur(var(--blur));
+          filter: blur(var(--blur));
+}
+/*# sourceMappingURL=playing-css-js.css.map */

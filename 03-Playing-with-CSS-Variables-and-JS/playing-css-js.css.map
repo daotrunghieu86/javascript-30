@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,KAAK,CAAC;EACF,SAAS,CAAA,KAAC;EACV,MAAM,CAAA,IAAC;EACP,OAAO,CAAA,QAAC;CACX;;AAED,AACI,UADM,CACN,GAAG,CAAC;EACA,UAAU,EAAE,IAAI;EAChB,MAAM,EAAE,cAAc,CAAC,KAAK,CAAC,YAAY;EACzC,MAAM,EAAE,iBAAiB;CAC5B",
+    "sources": [
+        "playing-css-js.scss"
+    ],
+    "names": [],
+    "file": "playing-css-js.css"
+}

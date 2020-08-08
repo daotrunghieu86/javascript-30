@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.contain {
+  width: 100%;
+  height: 100vh;
+  background: url("img.jpg") no-repeat center/cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contain .form {
+  width: 200px;
+  background: white;
+  padding: 15px;
+}
+
+.contain .form .logo {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.contain .form .tapas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 0.5rem;
+}
+
+.contain .form .tapas li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  list-style: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 8px 0;
+  border-bottom: 1px solid gray;
+}
+
+.contain .form .formInput {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-top: 1rem;
+}
+
+.contain .form .formInput input {
+  width: 60%;
+  margin-right: 2px;
+  padding-left: 10px;
+  outline: none;
+}
+
+.contain .form .formInput button {
+  width: 40%;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 8px 5px;
+  border: 1px solid gray;
+  outline: none;
+}
+/*# sourceMappingURL=LocalStorage-and-Event-Delegation.css.map */

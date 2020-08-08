@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="02-css-js-CLOCK.css" />
+    <title>Clock</title>
+  </head>
+  <body>
+    <div class="clock">
+      <div class="face-clock">
+        <div class="hand hand--hour"></div>
+        <div class="hand hand--minute"></div>
+        <div class="hand hand--second"></div>
+      </div>
+    </div>
+    <script>
+      // METHOD 1
+      //   const hour = document.querySelector(".hand--hour");
+      //   const minute = document.querySelector(".hand--minute");
+      //   const second = document.querySelector(".hand--second");
+
+      //   setInterval(function () {
+      //     var now = new Date();
+
+      //     var secondsDegree = (now.getSeconds() / 60) * 360 + 90;
+      //     var minutesDegree = (now.getMinutes() / 60) * 360 + 90;
+      //     var hoursDegree = (now.getHours() / 12) * 360 + 90;
+
+      //     console.log(secondsDegree);
+
+      //     second.style.transform = `rotate(${secondsDegree}deg)`;
+      //     minute.style.transform = `rotate(${minutesDegree}deg)`;
+      //     hour.style.transform = `rotate(${hoursDegree}deg)`;
+      //   }, 1000);
+
+      // METHOD 2.1
+      const handSecond = document.querySelector(".hand--second");
+      const handMinute = document.querySelector(".hand--minute");
+      const handHour = document.querySelector(".hand--hour");
+
+      function setSecond() {
+        const date = new Date();
+
+        // Second
+        const second = date.getSeconds();
+        const secondsDegree = (second / 60) * 360 + 90;
+        // cộng thêm 90 là để tâm 0. độ ban đầu là nằm ngang, cộng thêm 90 để cho nó thẳng đứng góc 12h
+        handSecond.style.transform = `rotate(${secondsDegree}deg)`;
+        // console.log(second);
+
+        // Minute
+        const minute = date.getMinutes();
+        const minutesDegree = (minute / 60) * 360 + 90;
+        handMinute.style.transform = `rotate(${minutesDegree}deg)`;
+        // console.log(minute);
+
+        // Hour
+        const hour = date.getHours();
+        const hoursDegree = (hour / 12) * 360 + 90;
+        handHour.style.transform = `rotate(${hoursDegree}deg)`;
+        // console.log(hour);
+      }
+      setInterval(setSecond, 1000);
+
+      // METHOD 2.2
+      (() => {
+        let handSecond = document.querySelector(".hand--second");
+        handMinute = document.querySelector(".hand--minute");
+        handHour = document.querySelector(".hand--hour");
+
+        // function calcDegree(index, max){
+        //     return ((index/max)*360 + 90);
+        // }
+
+        // gọi hàm kết hợp giữa 2 kiểu gọi hàm: function expression và arrow function.
+        const calcDegree = (index, max) => (index / max) * 360 + 90;
+
+        setInterval(() => {
+          const today = new Date(),
+            second = today.getSeconds(),
+            minute = today.getMinutes(),
+            hour = today.getHours();
+
+          const secondsDegree = calcDegree(second, 60),
+            minutesDegree = calcDegree(minute, 60),
+            hoursDegree = calcDegree(hour, 12);
+
+          handSecond.style.transform = `rotate(${secondsDegree}deg)`;
+          handMinute.style.transform = `rotate(${minutesDegree}deg)`;
+          handHour.style.transform = `rotate(${hoursDegree}deg)`;
+        }, 1000);
+      })();
+    </script>
+  </body>
+</html>

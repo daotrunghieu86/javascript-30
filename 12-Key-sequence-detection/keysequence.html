@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Key sequence detection</title>
+</head>
+<body>
+    <script>
+        var progress = [];
+        const secretCode = 'hieu';
+        console.log(secretCode.length);
+        window.onkeyup = function(e) {
+            progress.push(e.key);
+            // console.log(progress.length);
+            progress.splice(-secretCode.length - 1, progress.length - secretCode.length);
+            let join = progress.join('');
+            console.log(join);
+            if (join === secretCode){
+                console.log('Yes');
+            }else {
+                console.log('No');
+            }
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p onclick="makeGreen()">BREAK DOWN</p>
+    <script>
+      const dogs = [
+        { name: "Snickers", age: 2 },
+        { name: "Hugo", age: 4 },
+      ];
+
+      function makeGreen() {
+        const p = document.querySelector("p");
+        p.style.color = "red";
+        p.style.fontSize = "50px";
+      }
+
+      // regular
+      console.log("Hi girl");
+
+      // Interpolated
+      console.log("hello im %s show %s cool", "💩", "😆");
+      // hello im 💩 show 😆 cool
+
+      // styled
+      console.log(
+        "%c I am so great text",
+        "font-size: 50px; background: gray;"
+      );
+
+      // warning
+      console.warn("Fucken wow");
+
+      // Error
+      console.error("oh Shit");
+
+      // Info
+      console.info("This is infomation");
+
+      // Testing
+      console.assert(1 == 2, "This is wrong!");
+
+      const p = document.querySelector("p");
+      console.assert(p.classList.contains("ouch"), "that is wrong!");
+
+      // clearing
+      //   console.clear(); // nó sẽ xóa hết tất cả những gì hiển thị trước nó
+
+      // viewing dom elements
+      console.log(p);
+      console.dir(p);
+
+      //   console.clear();
+
+      // Grouping together
+      dogs.forEach((dog) => {
+        // console.group(`${dog.name}`);
+        console.groupCollapsed(`${dog.name}`);
+        console.log(`${dog.name} is ${dog.age} years old.`);
+        console.groupEnd(`${dog.name}`);
+      });
+      // ▼ Snickers
+      //      Snickers is 2 years old.
+      // ▼ Hugo
+      //      Hugo is 4 years old.
+
+      // Counting
+      console.count("Hieu"); // Hieu: 1
+      console.count("Hieu"); // Hieu: 2
+      console.count("Huong"); // Huong: 1
+      console.count("Huong"); // Huong: 2
+      console.count("Huong"); // Huong: 3
+      console.count("Hieu"); // Hieu: 3
+      console.count("Huong"); // Huong: 4
+      console.count("Hieu"); // Hieu: 4
+
+      // Timing
+      //   Starts a timer you can use to track how long an operation takes. You give each timer a unique name, and may have up to 10,000 timers running on a given page. When you call "console.timeEnd()" with the same name, the browser will output the time, in milliseconds, that elapsed since the timer was started.
+
+      console.time("fetching data");
+      fetch("https://jsonplaceholder.typicode.com/users")
+        .then((data) => data.json())
+        .then((data) => {
+          console.timeEnd("fetching data");
+          console.log(data);
+        });
+    </script>
+  </body>
+</html>

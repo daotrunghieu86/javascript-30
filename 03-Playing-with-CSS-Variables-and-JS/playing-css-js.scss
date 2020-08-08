@@ -1,0 +1,16 @@
+
+
+:root {
+    --spacing: 16px;
+    --blur: 5px;
+    --color: #95a5a6;
+}
+
+.container {
+    img {
+        margin-top: 2rem;
+        border: var(--spacing) solid var(--color);
+        filter: blur(var(--blur));
+    }
+}
+

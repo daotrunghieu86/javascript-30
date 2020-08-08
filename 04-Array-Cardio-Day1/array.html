@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const inventor = [
+        { first: "Albert", last: "Einstein", year: 1879, passed: 1955 },
+        { first: "Isaac", last: "Newton", year: 1643, passed: 1727 },
+        { first: "Galileo", last: "Galilei", year: 1564, passed: 1642 },
+        { first: "Marie", last: "Curie", year: 1867, passed: 1934 },
+        { first: "Johanners", last: "Kepler", year: 1571, passed: 1630 },
+        { first: "Nicolaus", last: "Copernicus", year: 1473, passed: 1543 },
+        { first: "Max", last: "Planck", year: 1858, passed: 1947 },
+      ];
+
+      const people = [
+        "Beck, Glenn",
+        "Becker, Carl ",
+        " Beckett, Samuel ",
+        " Beddoes, Mick ",
+        "Beecher, Henry",
+        "Beethoven, Ludwig",
+        "Begin, Menachem",
+        "Belloc, Hilaire",
+        "Bellow, Saul ",
+        " Benchley, Robert ",
+        " Benenson, Peter ",
+        " Ben-Gurion, David ",
+        "Benjamin, Walter",
+        "Benn, Tony",
+        "Benning ton, Chester",
+        "Benson, Leana",
+        "Bent  , Silas ",
+        " Bentsen, Lloyd ",
+        " Berger, Ric ",
+        " Bergman, Ingmar ",
+        " Berio, Luciano ",
+        "Berle, Milton",
+        "Berlin, Irving",
+        "Berne, Eric",
+        "Bernhard, Sandra",
+        "Berra, Yogi",
+        "Bevan, Aneurin ",
+        " Bevel, Ken ",
+        "Berry, Halle",
+        "Berry, Wendell",
+        "Bethea, Erin ",
+        " Biden, Joseph ",
+        " Bierce, Ambrose ",
+        " Biko, Steve ",
+        "Billings, Josh",
+        "Biondo, Frank",
+        "Birrell, Augustine",
+        "Black Elk",
+        "Blair, Robert",
+        "Blair, Tony",
+        "Blake, William",
+      ];
+
+      // Arrap.prototype.filter()
+      // 1. Filter the list of inventeros for those who were born in the 1500's
+      const filter = inventor.filter(
+        (item) => item.year >= 1500 && item.year <= 1600
+      );
+      console.table(filter);
+
+      // Array.prototype.map()
+      // 2. Give us an arry of the inventory first and list names
+      const fullName = inventor.map((item) => `${item.first} ${item.last}`);
+      // console.log(fullName);
+      console.table(fullName);
+
+      // Array.prototype.sort()
+      // 3. Sort the inventorsby birthdate, oldest to youngest
+
+      // const ordered = inventor.sort(function(a,b){
+      //   if (a.year > b.year){
+      //     return 1;
+      //   }else {
+      //     return -1;
+      //   }
+      // });
+
+      const ordered = inventor.sort((a, b) => (a.year > b.year ? -1 : 1));
+      console.table(ordered);
+
+      // Array.prototype.reduce()
+      // 4. How many years did all the inventors live?
+      const years = inventor.reduce(function (sum, curr) {
+        return (sum += curr.passed - curr.year);
+      }, 0);
+      console.log(years);
+
+      // 5. Sort the inventors by year lived
+
+      // const perYears = inventor.map(e => (e.passed - e.year));
+      // console.log(perYears);
+      // const sortYears = perYears.sort((a,b) => (a>b) ? 1 : -1);
+      // console.log(sortYears);
+
+      const oldest = inventor.sort((a, b) => {
+        const lastPer = a.passed - a.year;
+        const nextPer = b.passed - b.year;
+        return lastPer > nextPer ? -1 : 1;
+      });
+      console.table(oldest);
+
+      // 6. Create a list of Boulevards in Paris that contain 'de' anywhere in the name
+      // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+
+      // Thực hành câu lệnh trực tiếp trên trang theo đường link bên trên
+      // const category = document.querySelector('.mw-category');
+      // const links = Array.from(category.querySelectorAll('a'));
+      // const de = links.map(link => link.textContent).filter(streeName => streeName.includes('de'));
+
+      // 7. sort Exercise
+      // Sort the people alphabetically by last name
+      const alphabet = people.sort(function (lastOne, nextOne) {
+        const [alast, afirst] = lastOne.split(", ");
+        const [blast, bfirst] = nextOne.split(", ");
+        return alast > blast ? 1 : -1;
+      });
+      console.log(alphabet);
+
+      // 8. Reduce Exercise
+      // Sum up the instances of each of these
+      const data = [
+        "car",
+        "car",
+        "truck",
+        "truck",
+        "bike",
+        "walk",
+        "car",
+        "van",
+        "bike",
+        "walk",
+        "car",
+        "van",
+        "car",
+        "truck",
+      ];
+
+      const transportation = data.reduce(function (obj, item) {
+        if (!obj[item]) {
+          obj[item] = 0;
+        }
+        obj[item]++;
+        return obj;
+      }, []);
+      console.log(transportation);
+    </script>
+  </body>
+</html>
